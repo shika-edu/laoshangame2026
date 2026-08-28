@@ -22,6 +22,17 @@
     .overlay{position:fixed;inset:0;z-index:20;background:#172720bf;display:grid;place-items:center;padding:18px;backdrop-filter:blur(5px)}.modal{width:min(94vw,860px);max-height:90vh;overflow:auto;background:#fffdf4;border-radius:32px;box-shadow:0 22px 80px #06110c88;padding:clamp(22px,4vw,42px);position:relative}.modal h2{font:800 30px var(--serif);color:#31544b;margin:0 0 12px}.modal p{line-height:1.8}.close{position:absolute;top:14px;right:14px;border-radius:50%;width:36px;height:36px;background:#e8ede7;color:#385148;font-size:20px}.teacher-login{max-width:450px}.teacher-login label{display:block;margin:18px 0 7px;font-weight:700}.teacher-login input,.settings input{width:100%;border:1px solid #b7c6bd;border-radius:13px;padding:12px;margin-bottom:10px}.backend-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.backend-card{background:#eef1e9;border-radius:18px;padding:17px}.backend-card h3{margin:0 0 8px;font-family:var(--serif)}.secondary{padding:10px 14px;border-radius:14px;background:#e2ece4;color:#2d5a4e;font-weight:800}.danger{background:#f0d8d1;color:#84473f}.chart-row{display:grid;grid-template-columns:150px 1fr 58px;align-items:center;gap:10px;margin:10px 0;font-size:14px}.bar{height:15px;background:#e0e6df;border-radius:10px;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,#6b9184,#b89163);border-radius:inherit;min-width:0}.record-table{width:100%;border-collapse:collapse;font-size:13px;margin:14px 0}.record-table th,.record-table td{padding:8px;border-bottom:1px solid #dde3dd;text-align:left}.record-table th{color:#5d7169}.cast-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.cast-card{border-radius:18px;background:#edf1eb;padding:10px;text-align:center}.disciple{height:160px;background-image:url('assets/disciples-expressions.png');background-repeat:no-repeat;background-size:400% 300%;background-position:var(--x) 0}.cast-card b{font-family:var(--serif)}
     .ending{min-height:100vh;display:grid;place-items:center;padding:28px}.ending-card{width:min(94vw,970px);background:#fffdf5ee;border:1px solid #fff;border-radius:40px;box-shadow:0 24px 80px #0b161099;overflow:hidden}.ending-art{height:280px;background:center/cover var(--endingart);position:relative}.ending-art:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#132a26aa,#0000 70%)}.ending-content{padding:clamp(24px,4vw,45px)}.ending-kicker{color:#9a7051;font-weight:800;letter-spacing:.12em}.ending h1{font:800 clamp(28px,4vw,44px) var(--serif);color:#35584d;margin:8px 0 12px}.ending-content p{font:17px/1.95 var(--serif);white-space:pre-line}.ending-stats{display:flex;flex-wrap:wrap;gap:9px;margin:18px 0}.tag{background:#e5ede7;color:#34574b;border-radius:99px;padding:7px 12px;font-size:13px;font-weight:700}.ending-actions{display:flex;flex-wrap:wrap;gap:10px}.ending-actions button{padding:12px 16px;border-radius:15px;font-weight:800}.quote{margin:20px 0 0;padding:15px 19px;background:#eee8d8;border-left:5px solid #ad8a56;border-radius:12px;font:16px/1.85 var(--serif);color:#534735}
     @media(max-width:760px){.topbar{height:66px}.logo{font-size:22px}.logo small{display:none}.teacher-btn{padding:9px;font-size:0}.teacher-btn:after{content:'師';font-size:15px}.hud{grid-template-columns:1fr 1fr}.day-card{grid-column:1/-1}.stage{min-height:520px}.portrait{width:auto;height:275px;aspect-ratio:1/2;max-width:48%;bottom:188px}.portrait.wang{left:0}.portrait.master,.portrait.brother{right:0}.dialogue{grid-template-columns:1fr;gap:2px;min-height:180px;padding:14px 20px}.speaker{font-size:16px}.line{font-size:16px;line-height:1.78}.choice-wrap{bottom:187px}.choice{font-size:14px;padding:10px 12px}.task-grid{grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}.task{min-height:95px;padding:11px 15px}.task h3{font-size:19px}.task .task-icon{font-size:28px}.task p{font-size:12px}.map-panel{padding:16px}.map-header{padding:8px 14px}.map-header h2{font-size:18px}.map-header p{display:none}.cast-grid{grid-template-columns:1fr 1fr}.backend-grid{grid-template-columns:1fr}.start-form{grid-template-columns:1fr}.intro-card{border-radius:35px}.ending-art{height:180px}}
+
+    /* 雲端紀錄 UI；不改動原有遊戲場景與圖檔路徑。 */
+    .start-form{grid-template-columns:1fr;max-width:620px}
+    .identity-fields{display:grid;grid-template-columns:1fr .7fr 1.4fr;gap:10px}
+    .identity-fields label{min-width:0;text-align:left;font-size:14px;font-weight:700}
+    .identity-fields input{display:block;width:100%;margin-top:6px;padding:13px 12px}
+    .sync-box{margin:18px 0;padding:16px;border:1px solid #c6d6cc;background:#edf3ed;border-radius:18px;text-align:left;overflow-wrap:anywhere}
+    .sync-box p,.ending-content .sync-box p{font:14px/1.7 var(--sans);margin:8px 0}
+    button:disabled{cursor:wait;opacity:.6}
+    .table-scroll{overflow-x:auto}
+    @media(max-width:560px){.identity-fields{grid-template-columns:1fr}.chart-row{grid-template-columns:120px 1fr 44px}.ending{padding:16px}}
   </style>
 </head>
 <body>
@@ -29,13 +40,13 @@
 
 <script>
 /*
-  那一天，我走上勞山 — 單檔離線版
+  那一天，我走上勞山 — HTML 版（圖檔使用 assets；雲端紀錄需連線）
   圖檔放在 HTML 同層的 assets/：可在 ASSET 配置中替換。
   教師密碼僅防止學生誤觸；純前端無法提供真正的安全性。
 */
 const CONFIG = {
   teacherPassword: 'shika2026',
-  googleScriptUrl: '', // 串接 Google Apps Script Web App 後，填入網址即可自動上傳完成紀錄。
+  googleScriptUrl: 'https://script.google.com/macros/s/AKfycbwUuwDOHppfYRdGt1alMgJuzfUg5Pjtv6V1w6b5rfmpf370Owcx1b59k9wmq4fjBjux/exec', // 串接 Google Apps Script Web App 後，填入網址即可自動上傳完成紀錄。
   title: '那一天，我走上勞山',
   storageKey: 'laoshan-learning-game-v1'
 };
@@ -150,13 +161,32 @@ const KEY_EVENTS = [
 
 let state = null, typing = null, currentSequence = null, lineIndex = 0;
 const app = document.querySelector('#app');
-function loadStore(){try{return JSON.parse(localStorage.getItem(CONFIG.storageKey))||{records:[],settings:{googleScriptUrl:CONFIG.googleScriptUrl}}}catch{return{records:[],settings:{googleScriptUrl:CONFIG.googleScriptUrl}}}}
-function saveStore(s){localStorage.setItem(CONFIG.storageKey,JSON.stringify(s))}
+let memoryStore = {records:[],settings:{}}, storageAvailable = true;
+function loadStore(){
+  if(!storageAvailable)return memoryStore;
+  try{
+    const parsed=JSON.parse(localStorage.getItem(CONFIG.storageKey));
+    if(parsed && Array.isArray(parsed.records))memoryStore={...parsed,settings:parsed.settings||{}};
+  }catch{storageAvailable=false}
+  return memoryStore;
+}
+function saveStore(s){
+  memoryStore=s;
+  if(!storageAvailable)return false;
+  try{localStorage.setItem(CONFIG.storageKey,JSON.stringify(s));return true}
+  catch{storageAvailable=false;return false}
+}
 function store(){return loadStore()}
 function fmtTime(ms){const s=Math.max(0,Math.round(ms/1000)),m=Math.floor(s/60);return `${m}:${String(s%60).padStart(2,'0')}`}
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function intro(){app.innerHTML=`<section class="screen mountain"><header class="topbar"><div class="logo">那一天，我走上勞山<small>課前體驗｜在日課與捷徑之間，選擇你要成為的人</small></div><div class="top-actions"><button class="icon-btn" onclick="showCast()" title="人物誌">📜</button><button class="teacher-btn" onclick="teacherLogin()">教師後臺</button></div></header><article class="intro-card"><div class="seal">勞山<br>問道</div><h1>那一天，我走上勞山</h1><p class="lead">王生聽聞勞山多仙人，懷著對道術的嚮往而來。他所見的道士神觀爽邁、言談玄妙；他所想的，卻是能立刻改變世界的奇術。山中日子從砍柴、掃地、挑水開始，疲憊、比較與急躁也隨之而來。這四十五日裡，你將以王生的眼睛看見勞山：每次想省去一點麻煩、快些得到答案時，究竟會把你帶往何處？</p><form class="start-form" onsubmit="begin(event)"><input id="identity" required maxlength="40" placeholder="請輸入：班級－座號－代號　例：203－18－竹影" aria-label="班級座號代號"><button class="primary" type="submit">走上勞山　→</button></form><p class="hint">遊戲約 25–30 分鐘｜點按對話任意處可加速或前進｜數值只呈現低／中／高</p></article></section>`}
-function begin(e){e.preventDefault();const id=document.querySelector('#identity').value.trim();if(!id)return;state={id,start:Date.now(),day:1,round:1,completed:[],specialDone:false,physical:0,physicalMax:100,mind:8,dao:0,shortcut:0,steadfast:0,lastPhysical:0,lastMind:0,lastDao:0,events:[],answers:[],ending:null};showMap('你踏上勞山。每回合完成兩項日課，再經歷一段修行插曲，便能推進三日。')}
+function intro(){app.innerHTML=`<section class="screen mountain"><header class="topbar"><div class="logo">那一天，我走上勞山<small>課前體驗｜在日課與捷徑之間，選擇你要成為的人</small></div><div class="top-actions"><button class="icon-btn" onclick="showCast()" title="人物誌">📜</button><button class="teacher-btn" onclick="teacherLogin()">教師後臺</button></div></header><article class="intro-card"><div class="seal">勞山<br>問道</div><h1>那一天，我走上勞山</h1><p class="lead">王生聽聞勞山多仙人，懷著對道術的嚮往而來。他所見的道士神觀爽邁、言談玄妙；他所想的，卻是能立刻改變世界的奇術。山中日子從砍柴、掃地、挑水開始，疲憊、比較與急躁也隨之而來。這四十五日裡，你將以王生的眼睛看見勞山：每次想省去一點麻煩、快些得到答案時，究竟會把你帶往何處？</p><form class="start-form" onsubmit="begin(event)"><div class="identity-fields"><label>班級<input id="className" required maxlength="30" placeholder="例：203" autocomplete="off"></label><label>座號<input id="seatNo" required maxlength="10" placeholder="例：18" autocomplete="off"></label><label>代號<input id="alias" required maxlength="40" placeholder="例：竹影（不填真實姓名）" autocomplete="off"></label></div><button class="primary" type="submit">走上勞山　→</button></form><p class="hint">完成遊戲後，班級、座號、代號、開始／完成時間與結局會傳送至活動管理者的私人試算表。本機也會保留紀錄供重試；共用裝置請由管理者於活動後清除。不需填寫真實姓名。</p><div id="pendingSync"></div><p class="hint">遊戲約 25–30 分鐘｜點按對話任意處可加速或前進｜數值只呈現低／中／高</p></article></section>`;renderSyncUI()}
+function begin(e){
+  e.preventDefault();
+  const identity={className:document.querySelector('#className').value.trim(),seatNo:document.querySelector('#seatNo').value.trim(),alias:document.querySelector('#alias').value.trim()};
+  if(Object.values(identity).some(v=>!v||/[\u0000-\u001f\u007f]/.test(v))){alert('請填寫班級、座號與代號，不要使用換行或控制字元。');return}
+  state={id:[identity.className,identity.seatNo,identity.alias].join('－'),identity,recordId:newRecordId(),start:Date.now(),day:1,round:1,completed:[],specialDone:false,physical:0,physicalMax:100,mind:8,dao:0,shortcut:0,steadfast:0,lastPhysical:0,lastMind:0,lastDao:0,events:[],answers:[],ending:null};
+  showMap('你踏上勞山。每回合完成兩項日課，再經歷一段修行插曲，便能推進三日。')
+}
 function statWord(n,max,type){let p=n/max;if(type==='dao')p=n/20;return p<.34?'低':p<.67?'中':'高'}
 function arrow(now,last){return now>last?'↑':now<last?'↓':'→'}
 function arrowClass(now,last){return now>last?'up':now<last?'down':'flat'}
@@ -187,17 +217,114 @@ function finalDecision(message=''){renderStage('monastery');const option=finalOp
 function chooseFinal(i){/* reserved */}
 // final choices flow through choose(); detect them by their kind after effects.
 const _choose=choose; choose=function(i){const c=currentSequence?.choices?.[i];if(currentSequence?.type==='final'){if(!c)return;hideChoices();applyEffect(c.effect,c.text);state.answers.push({day:45,context:'第45日去留抉擇',choice:c.text,kind:c.kind});let ending;if(c.kind==='home')ending='home';else if(c.kind==='modest')ending=state.dao>=7&&state.shortcut<=5?'modest':'embarrassed';else if(c.kind==='stay')ending=(state.dao>=17&&state.shortcut<=2&&state.mind<=30&&state.physical<=80)?'master':'stay';else ending='embarrassed';endGame(ending);return}_choose(i)};
-function endGame(key){clearTyping();state.end=Date.now();const duration=state.end-state.start;const allSteadfast=state.answers.length>=30&&state.answers.every(a=>a.kind!=='shortcut');state.rushedIntegrity=duration<10*60*1000&&allSteadfast;if(state.rushedIntegrity)key='embarrassed';state.ending=key;const e=ENDINGS[key],rec={id:state.id,start:new Date(state.start).toLocaleString('zh-TW'),end:new Date(state.end).toLocaleString('zh-TW'),duration,ending:key,endingLabel:e.label,dao:state.dao,mind:state.mind,physical:state.physical,physicalMax:state.physicalMax,shortcut:state.shortcut,answers:state.answers};const s=store();s.records.push(rec);saveStore(s);syncRecord(rec);app.innerHTML=`<section class="screen ending-bg ending"><article class="ending-card"><div class="ending-art" style="--endingart:url('${e.art}'),url('${e.fallback}')"></div><div class="ending-content"><div class="ending-kicker">${e.label}</div><h1>${e.title}</h1><p>${e.text}</p>${state.rushedIntegrity?'<p class="notice">你一路選擇了看似正確的答案，卻把對話與勞作快速略過。潔持不是猜中標準答案，而是願意在過程中停留、覺察與完成。</p>':''}<div class="ending-stats"><span class="tag">道力：${state.dao}/20</span><span class="tag">心理疲憊：${statWord(state.mind,100,'mind')}</span><span class="tag">身體疲憊：${statWord(state.physical,state.physicalMax,'body')}</span><span class="tag">遊玩時間：${fmtTime(rec.duration)}</span></div><div class="ending-actions"><button class="primary" onclick="saveEndingCard()">保存結局畫面</button><button class="secondary" onclick="intro()">再玩一次</button><button class="secondary" onclick="teacherLogin()">教師後臺</button></div><blockquote class="quote">${QUOTE.replace(/\n/g,'<br>')}</blockquote></div></article></section>`}
-function syncRecord(rec){const url=store().settings?.googleScriptUrl||CONFIG.googleScriptUrl;if(!url)return;fetch(url,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(rec)}).catch(()=>{})}
+function endGame(key){if(!state||state.ending)return;clearTyping();state.end=Date.now();const duration=state.end-state.start;const allSteadfast=state.answers.length>=30&&state.answers.every(a=>a.kind!=='shortcut');state.rushedIntegrity=duration<10*60*1000&&allSteadfast;if(state.rushedIntegrity)key='embarrassed';state.ending=key;const e=ENDINGS[key],rec={recordId:state.recordId,id:state.id,start:new Date(state.start).toLocaleString('zh-TW'),end:new Date(state.end).toLocaleString('zh-TW'),duration,ending:key,endingLabel:e.label,dao:state.dao,mind:state.mind,physical:state.physical,physicalMax:state.physicalMax,shortcut:state.shortcut,answers:state.answers};const s=store();rec.payload={recordId:state.recordId,...state.identity,startedAt:new Date(state.start).toISOString(),finishedAt:new Date(state.end).toISOString(),ending:e.label};rec.syncStatus='pending';s.records.push(rec);saveStore(s);lastCompletedRecord=rec;app.innerHTML=`<section class="screen ending-bg ending"><article class="ending-card"><div class="ending-art" style="--endingart:url('${e.art}'),url('${e.fallback}')"></div><div class="ending-content"><div class="ending-kicker">${e.label}</div><h1>${e.title}</h1><p>${e.text}</p>${state.rushedIntegrity?'<p class="notice">你一路選擇了看似正確的答案，卻把對話與勞作快速略過。潔持不是猜中標準答案，而是願意在過程中停留、覺察與完成。</p>':''}<div class="ending-stats"><span class="tag">道力：${state.dao}/20</span><span class="tag">心理疲憊：${statWord(state.mind,100,'mind')}</span><span class="tag">身體疲憊：${statWord(state.physical,state.physicalMax,'body')}</span><span class="tag">遊玩時間：${fmtTime(rec.duration)}</span></div><section id="cloudSync" class="sync-box" aria-live="polite"></section><div class="ending-actions"><button class="primary" onclick="saveEndingCard()">保存結局畫面</button><button class="secondary" onclick="intro()">再玩一次</button><button class="secondary" onclick="teacherLogin()">教師後臺</button></div><blockquote class="quote">${QUOTE.replace(/\n/g,'<br>')}</blockquote></div></article></section>`;renderSyncUI();void syncRecord(rec)}
+let lastCompletedRecord=null;
+const syncInFlight=new Set();
+let retrying=false, testRecord=null;
+function newRecordId(){return globalThis.crypto?.randomUUID?.() || 'game-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,14)}
+function updateSync(rec,status,message=''){
+  rec.syncStatus=status;rec.syncMessage=message;
+  const s=store(),saved=s.records.find(r=>r.recordId===rec.recordId);
+  if(saved){saved.syncStatus=status;saved.syncMessage=message;saveStore(s)}
+  renderSyncUI();
+}
+function syncDescription(rec){
+  if(!rec)return '';
+  if(rec.syncStatus==='confirmed')return '已收到雲端寫入確認。';
+  if(rec.syncStatus==='sending')return '正在傳送，請先不要關閉網頁……';
+  return rec.syncMessage || '尚未取得雲端確認，可按重試。';
+}
+function renderSyncUI(){
+  const box=document.querySelector('#cloudSync');
+  if(box&&lastCompletedRecord){
+    const rec=lastCompletedRecord;
+    box.innerHTML=`<strong>遊戲紀錄</strong><p>${esc(syncDescription(rec))}</p><p>${storageAvailable?'紀錄已保留於本機，重試會沿用同一筆紀錄編號。':'此瀏覽器無法持久儲存；關閉或重新整理後將無法重試，請先確認送達。'}</p>${rec.syncStatus==='confirmed'?'':`<button class="secondary" onclick="retryCurrentRecord()" ${syncInFlight.has(rec.recordId)?'disabled':''}>重試傳送</button>`}`;
+  }
+  const pending=store().records.filter(r=>r.payload&&r.syncStatus!=='confirmed');
+  const notice=document.querySelector('#pendingSync');
+  if(notice)notice.innerHTML=pending.length?`<div class="sync-box"><p>此裝置有 ${pending.length} 筆紀錄尚未取得雲端確認。</p><button class="secondary" onclick="retryPendingRecords()" ${retrying?'disabled':''}>${retrying?'處理中……':'重試未確認紀錄'}</button></div>`:'';
+  const test=document.querySelector('#cloudTestStatus');
+  if(test)test.textContent=testRecord?syncDescription(testRecord):'尚未送出測試資料。';
+  const testButton=document.querySelector('#cloudTestButton');
+  if(testButton)testButton.disabled=!!testRecord&&syncInFlight.has(testRecord.recordId);
+  const pendingButton=document.querySelector('#retryPendingButton');
+  if(pendingButton){pendingButton.disabled=retrying;pendingButton.textContent=retrying?'處理中……':`重試未確認紀錄（${pending.length}）`}
+}
+async function syncRecord(rec){
+  if(!rec?.payload||rec.syncStatus==='confirmed'||syncInFlight.has(rec.recordId))return;
+  // 固定使用此版本內建的目的地，避免旧版瀏覽器設定把資料送往別處。
+  syncInFlight.add(rec.recordId);
+  updateSync(rec,'sending');
+  const controller=new AbortController();
+  const timer=setTimeout(()=>controller.abort(),20000);
+  try{
+    const response=await fetch(CONFIG.googleScriptUrl,{
+      method:'POST',mode:'cors',credentials:'omit',redirect:'follow',
+      headers:{'Content-Type':'text/plain;charset=utf-8'},
+      body:JSON.stringify(rec.payload),signal:controller.signal
+    });
+    if(!response.ok||response.type==='opaque')throw new Error('UNCONFIRMED');
+    const reply=await response.json();
+    if(reply.ok===true&&reply.recordId===rec.recordId){updateSync(rec,'confirmed')}
+    else if(reply.error==='RECEIVING_DISABLED'){updateSync(rec,'pending','接收端尚未開放收件。請通知管理者啟用後，再按重試。')}
+    else if(reply.ok===false){updateSync(rec,'pending','接收端未確認寫入。請通知管理者檢查設定與資料欄位，再按重試。')}
+    else throw new Error('UNCONFIRMED');
+  }catch{
+    // 網路、逾時或跨網域讀取失敗，不代表伺服器一定沒有寫入。
+    updateSync(rec,'pending','尚未確認送達（可能是網路、逾時或跨網域限制）。請檢查試算表；可重試，同一筆不會重複登記。');
+  }finally{clearTimeout(timer);syncInFlight.delete(rec.recordId);renderSyncUI()}
+}
+function retryCurrentRecord(){if(lastCompletedRecord)void syncRecord(lastCompletedRecord)}
+async function retryPendingRecords(){
+  if(retrying)return;
+  retrying=true;renderSyncUI();
+  try{
+    const pending=store().records.filter(r=>r.payload&&r.syncStatus!=='confirmed');
+    for(const rec of pending){
+      await syncRecord(rec);
+      if(lastCompletedRecord?.recordId===rec.recordId)Object.assign(lastCompletedRecord,rec);
+      if(rec.syncStatus!=='confirmed')break;
+    }
+  }finally{retrying=false;renderSyncUI()}
+}
+function testCloudSync(){
+  if(testRecord?.syncStatus==='confirmed'){alert('這筆測試已確認送達。請至試算表查看「網頁串接測試」，不需重複新增。');return}
+  if(!testRecord){
+    const s=store();testRecord=s.records.find(r=>r.isCloudTest&&r.syncStatus!=='confirmed');
+    if(!testRecord){
+      if(!confirm('將傳送一筆虛構的「網頁串接測試」資料到私人試算表，確定繼續？'))return;
+      const end=Date.now(),recordId='TEST-WEB-'+newRecordId();
+      testRecord={recordId,isCloudTest:true,id:'測試班－00－網頁測試',start:new Date(end-60000).toLocaleString('zh-TW'),end:new Date(end).toLocaleString('zh-TW'),duration:60000,ending:'test',endingLabel:'網頁串接測試（非正式紀錄）',syncStatus:'pending',payload:{recordId,className:'測試班',seatNo:'00',alias:'網頁測試',startedAt:new Date(end-60000).toISOString(),finishedAt:new Date(end).toISOString(),ending:'網頁串接測試（非正式紀錄）'}};
+      s.records.push(testRecord);saveStore(s);
+    }
+  }
+  void syncRecord(testRecord);
+}
 function saveEndingCard(){if(!state?.ending)return;const e=ENDINGS[state.ending],c=document.createElement('canvas'),x=c.getContext('2d');c.width=1600;c.height=900;const g=x.createLinearGradient(0,0,1600,900);g.addColorStop(0,'#193a36');g.addColorStop(1,'#c9a879');x.fillStyle=g;x.fillRect(0,0,c.width,c.height);x.fillStyle='#fff9ef';x.fillRect(80,80,1440,740);x.fillStyle='#35594d';x.font='bold 74px serif';x.fillText(CONFIG.title,150,200);x.fillStyle='#a7734d';x.font='bold 42px serif';x.fillText(e.label,150,280);x.fillStyle='#35594d';x.font='bold 64px serif';x.fillText(e.title,150,365);x.fillStyle='#455650';x.font='36px serif';wrapCanvas(x,e.text,150,445,1300,58);x.fillStyle='#8a7654';x.font='32px serif';x.fillText(`道力 ${state.dao}/20　｜　第 ${state.day} 日`,150,760);const a=document.createElement('a');a.href=c.toDataURL('image/png');a.download=`勞山結局_${e.label.replace(/[｜]/g,'_')}.png`;a.click()}
 function wrapCanvas(ctx,text,x,y,max,w){let line='',yy=y;for(const ch of text){if(ctx.measureText(line+ch).width>max){ctx.fillText(line,x,yy);line=ch;yy+=w}else line+=ch}ctx.fillText(line,x,yy)}
 function teacherLogin(){app.insertAdjacentHTML('beforeend',`<div class="overlay" id="overlay"><section class="modal teacher-login"><button class="close" onclick="closeModal()">×</button><h2>教師後臺</h2><p>請輸入課堂用密碼，以查看統計、匯出資料或設定資料同步。</p><label>教師密碼</label><input id="teacherPass" type="password" autocomplete="current-password" placeholder="請輸入密碼"><button class="primary" onclick="unlockTeacher()">進入後臺</button></section></div>`)}
 function unlockTeacher(){if(document.querySelector('#teacherPass').value!==CONFIG.teacherPassword){alert('密碼不正確，請再試一次。');return}closeModal();teacherPanel()}
 function closeModal(){document.querySelector('#overlay')?.remove()}
-function teacherPanel(){const records=store().records;const counts=Object.keys(ENDINGS).map(k=>[k,records.filter(r=>r.ending===k).length]);const total=records.length||1;app.insertAdjacentHTML('beforeend',`<div class="overlay" id="overlay"><section class="modal"><button class="close" onclick="closeModal()">×</button><h2>教師後臺｜班級統計</h2><p>目前此瀏覽器已儲存 <b>${records.length}</b> 筆紀錄。未串接 Google Sheet 前，資料只會留在此裝置的瀏覽器中。</p><section>${counts.map(([k,n])=>`<div class="chart-row"><span>${ENDINGS[k].label}</span><div class="bar"><i style="width:${n/total*100}%"></i></div><b>${n} 人</b></div>`).join('')}</section><div class="backend-grid"><section class="backend-card"><h3>資料匯出</h3><p>下載 CSV，可直接用 Excel 或 Google 試算表開啟。</p><button class="secondary" onclick="exportCSV()">下載作答紀錄 CSV</button></section><section class="backend-card"><h3>Google Sheet 同步</h3><p>貼上 Apps Script 網頁應用程式網址。之後每位學生完成遊戲時，會自動送出一筆資料。</p><input id="scriptUrl" value="${esc(store().settings?.googleScriptUrl||'')}" placeholder="https://script.google.com/macros/s/.../exec"><button class="secondary" onclick="saveGoogleUrl()">儲存網址</button></section></div><h3>最近完成紀錄</h3>${records.length?`<table class="record-table"><thead><tr><th>玩家</th><th>完成時間</th><th>結局</th><th>道力</th><th>耗時</th></tr></thead><tbody>${records.slice(-8).reverse().map(r=>`<tr><td>${esc(r.id)}</td><td>${esc(r.end)}</td><td>${esc(r.endingLabel)}</td><td>${r.dao}</td><td>${fmtTime(r.duration)}</td></tr>`).join('')}</tbody></table>`:'<p>尚無完成紀錄。</p>'}<button class="secondary danger" onclick="clearRecords()">清除本機統計</button></section></div>`)}
-function exportCSV(){const r=store().records;const cols=['班級－座號－代號','開始時間','完成時間','最終結局'];const rows=r.map(x=>[x.id,x.start,x.end,x.endingLabel]);const csv='\ufeff'+[cols,...rows].map(row=>row.map(v=>`"${String(v??'').replaceAll('"','""')}"`).join(',')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download=`勞山道士_作答紀錄_${new Date().toISOString().slice(0,10)}.csv`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)}
-function saveGoogleUrl(){const s=store();s.settings.googleScriptUrl=document.querySelector('#scriptUrl').value.trim();saveStore(s);alert('已儲存。完成新一局遊戲後，資料將自動送出。')}
-function clearRecords(){if(confirm('確定清除這臺裝置中的所有統計嗎？此動作無法復原。')){const s=store();s.records=[];saveStore(s);closeModal();teacherPanel()}}
+function teacherPanel(){
+  const records=store().records.filter(r=>!r.isCloudTest);
+  const counts=Object.keys(ENDINGS).map(k=>[k,records.filter(r=>r.ending===k).length]),total=records.length||1;
+  app.insertAdjacentHTML('beforeend',`<div class="overlay" id="overlay"><section class="modal"><button class="close" onclick="closeModal()">×</button><h2>教師後臺｜本機統計</h2><p>此瀏覽器有 <b>${records.length}</b> 筆遊戲紀錄（不含串接測試）。這裡不是全班雲端統計；跨裝置的紀錄請到你的私人 Google 試算表查看。舊版紀錄不會自動補傳。</p><p>這個前端密碼僅避免誤觸，不能保護機密資料。試算表請維持限制存取。</p><section>${counts.map(([k,n])=>`<div class="chart-row"><span>${ENDINGS[k].label}</span><div class="bar"><i style="width:${n/total*100}%"></i></div><b>${n} 人</b></div>`).join('')}</section><div class="backend-grid"><section class="backend-card"><h3>資料匯出</h3><p>下載本機 CSV，包含紀錄編號與傳送狀態。</p><button class="secondary" onclick="exportCSV()">下載作答紀錄 CSV</button></section><section class="backend-card"><h3>Google 試算表同步</h3><p>已內建本次接收網址。僅傳送班級、座號、代號、時間、結局與紀錄編號，不傳送逐題選擇。首次使用請先送出虛構測試資料。</p><button id="cloudTestButton" class="secondary" onclick="testCloudSync()">送出測試資料</button><p id="cloudTestStatus" aria-live="polite"></p><button id="retryPendingButton" class="secondary" onclick="retryPendingRecords()">重試未確認紀錄</button></section></div><h3>最近完成紀錄</h3>${records.length?`<div class="table-scroll"><table class="record-table"><thead><tr><th>玩家</th><th>完成時間</th><th>結局</th><th>耗時</th><th>同步</th></tr></thead><tbody>${records.slice(-8).reverse().map(r=>`<tr><td>${esc(r.id)}</td><td>${esc(r.end)}</td><td>${esc(r.endingLabel)}</td><td>${fmtTime(r.duration)}</td><td>${r.syncStatus==='confirmed'?'已確認':r.payload?'未確認':'舊版未同步'}</td></tr>`).join('')}</tbody></table></div>`:'<p>尚無完成紀錄。</p>'}<button class="secondary danger" onclick="clearRecords()">清除本機統計</button></section></div>`);
+  renderSyncUI();
+}
+function exportCSV(){
+  const records=store().records.filter(r=>!r.isCloudTest);
+  const cols=['紀錄編號','班級－座號－代號','開始時間','完成時間','最終結局','同步狀態'];
+  const rows=records.map(r=>[r.recordId||'',r.id,r.start,r.end,r.endingLabel,r.syncStatus==='confirmed'?'已確認':r.payload?'未確認':'舊版未同步']);
+  const csv='\ufeff'+[cols,...rows].map(row=>row.map(v=>{let text=String(v??'');if(/^[\s]*[=+@-]/.test(text))text="'"+text;return '"'+text.replaceAll('"','""')+'"'}).join(',')).join('\r\n');
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='勞山道士_作答紀錄.csv';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500);
+}
+function saveGoogleUrl(){alert('此版本使用內建接收網址；如需更換，請更新 HTML 中的 CONFIG.googleScriptUrl。')}
+function clearRecords(){
+  if(syncInFlight.size||retrying){alert('正在傳送資料，請等候完成後再清除。');return}
+  if(confirm('確定清除此裝置的紀錄嗎？尚未確認送達的資料也會失去重試機會。這不會刪除 Google 試算表中的資料。')){
+    const s=store();s.records=[];saveStore(s);lastCompletedRecord=null;testRecord=null;closeModal();teacherPanel();
+  }
+}
 function showRules(){app.insertAdjacentHTML('beforeend',`<div class="overlay" id="overlay"><section class="modal"><button class="close" onclick="closeModal()">×</button><h2>修行提示</h2><p><b>45 天修行</b>以每三天一回合壓縮呈現；每回合自由選兩項日課，再完成一段觀察、協作或調息的修行插曲。</p><p><b>心理疲憊值</b>來自無聊、比較與急躁；奇異法術或連續踏實完成日課，可能使它下降。<br><b>身體疲憊值</b>會因日課上升；連續五日出勤，上限升至 120；超過十日後，王生逐漸適應山中節奏。<br><b>道力值</b>不超過 20，唯有踏實完成日課、克制速成、避免炫耀才能累積。</p><p>數值以低／中／高呈現，並於每回合結算；請留意箭頭，而非只追求單一數字。</p></section></div>`)}
 function showCast(){app.insertAdjacentHTML('beforeend',`<div class="overlay" id="overlay"><section class="modal"><button class="close" onclick="closeModal()">×</button><h2>勞山人物誌</h2><p><b>王生</b>：世家子弟，嚮往道術；他要學的，是不把「快」誤認為「成」。<br><b>道士</b>：仙風道骨、識人明敏；以日課教人修心，而非只傳奇術。</p><div class="cast-grid">${[['0%','採樵師兄','沉穩，教王生順著木紋做事。'],['33.33%','掃地師兄','安靜，知道重複也能有清明。'],['66.66%','挑水師兄','爽朗，帶人練出穩定的步子。'],['100%','小師弟','好奇，提醒王生別只看奇景。']].map(([x,n,d])=>`<div class="cast-card"><div class="disciple" style="--x:${x}"></div><b>${n}</b><small>${d}</small></div>`).join('')}</div></section></div>`)}
 intro();
